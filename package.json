@@ -1,0 +1,16 @@
+{
+  "name": "tcc-ms-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://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@github.com/ricardoSpara/tcc-ms-todo.git",
+  "author": "Ricardo Sparapan <ricardo.jrsparapan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
