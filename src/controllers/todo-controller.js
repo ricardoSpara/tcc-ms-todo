@@ -1,4 +1,5 @@
 const taskReporsitory = require("../repositories/task-reporsitory");
+const userRepository = require("../repositories/user-repository");
 
 class TaskController {
   async index(req, res) {
@@ -8,19 +9,28 @@ class TaskController {
   }
 
   async store(req, res) {
-    const { title, description, status } = req.body;
+    const { title, description, status, user_id: userId } = req.body;
 
-    const task = await taskReporsitory.create({title, description, status});
+    const user = await userRepository.findByUserId(userId);
 
-    return res.json(task);
+    if (!user) {
+      return res.json({ message: "User not exists" });
+    }
+
+    const task = await taskReporsitory.create({ title, description, status });
+
+    user.tasks.push(task);
+    user.save();
+    
+    return res.json(user);
   }
 
   async update(req, res) {
-    return res.json({ok: true});
+    return res.json({ ok: true });
   }
 
   async destroy(req, res) {
-    return res.json({ok: true});
+    return res.json({ ok: true });
   }
 }
 

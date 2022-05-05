@@ -1,6 +1,6 @@
-const mongoose, {  Schema } = require('mongoose');
+const mongoose = require('mongoose');
 
-const UserSchema = new Schema(
+const UserSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -10,9 +10,13 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    user_id: {
+      type: String,
+      required: true,
+    },
     tasks: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Task',
       },
     ],
