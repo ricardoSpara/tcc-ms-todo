@@ -21,7 +21,7 @@ class TaskController {
 
     user.tasks.push(task);
     user.save();
-    
+
     return res.json(user);
   }
 

@@ -13,7 +13,6 @@ class UserRepository {
     return user;
   }
 
-
   async create({ name, email, userId }) {
     const user = await User.create({
       name,

@@ -1,23 +1,23 @@
 const Task = require("../models/Task");
 
 class TaskRepository {
-    async findAll() {
-        const tasks = await Task.find({});
+  async findAll() {
+    const tasks = await Task.find({});
 
-        return tasks;
-    }
+    return tasks;
+  }
 
-    async create({title, description, status = false}) {
-        const task = await Task.create({
-          title,
-          description,
-          status,
-        });
-        
-        task.save();
+  async create({ title, description, status = false }) {
+    const task = await Task.create({
+      title,
+      description,
+      status,
+    });
 
-        return task;
-    }
+    task.save();
+
+    return task;
+  }
 }
 
 module.exports = new TaskRepository();
