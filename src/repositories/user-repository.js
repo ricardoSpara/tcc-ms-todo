@@ -24,6 +24,13 @@ class UserRepository {
 
     return task;
   }
+
+  async createOrUpdate(userDto) {
+    const userId = userDto.id;
+    delete userDto.id;
+
+    await User.updateOne({ user_id: userId }, userDto, { upsert: true });
+  }
 }
 
 module.exports = new UserRepository();

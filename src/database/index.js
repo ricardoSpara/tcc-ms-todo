@@ -7,7 +7,7 @@ class Database {
 
     mongoose.connection.on("disconnected", this.mongo);
   }
-
+  
   mongo() {
     mongoose
       .connect(mongoConfig.mongoUrl, {
